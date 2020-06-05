@@ -33,7 +33,19 @@ pipeline {
 				echo "Choice : ${params.CHOICE}"
 				echo "Pwd : ${params.PASSWORD}"
 				
+				bat 'mvn clean package'
 			
+			}
+		}
+		
+		stage('Test') {
+			steps {
+				bat 'mvn test'
+			}
+			post {
+				always {
+					junit 'target/surefire-reports/*.xml'
+				}
 			}
 		}
 	}
