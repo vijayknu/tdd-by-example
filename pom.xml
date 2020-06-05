@@ -71,7 +71,7 @@
                 <version>2.22.0</version>
                 <configuration>
                     <argLine>
-                        --illegal-access=permit
+                        --illegal-access=permit -Xmx1024m -XX:MaxPermSize=256m
                     </argLine>
                 </configuration>
             </plugin>
